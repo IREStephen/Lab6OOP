@@ -1,6 +1,10 @@
-public void deposit(double amount) {
+public void withdraw(double amount) {
     if (amount <= 0) {
-        throw new IllegalArgumentException("Deposit amount must be positive");
+        throw new IllegalArgumentException("Withdraw amount must be positive");
     }
-    this.balance += amount;
+    if (amount > balance) {
+        throw new IllegalArgumentException("Insufficient funds");
+    }
+    this.balance -= amount;
+}
 }
